@@ -85,30 +85,35 @@ public class Car {
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
             Document doc = dBuilder.parse(xmlFile);
             doc.getDocumentElement().normalize();
-            System.out.println("Root element :" 
-                    + doc.getDocumentElement().getNodeName());
-            NodeList nList = doc.getElementsByTagName("car");
+            NodeList nList = doc.getElementsByTagName("cars");
             for(int i = 0; i < nList.getLength(); i++){
                 Node nNode = nList.item(i);
-                System.out.println();
+                System.out.println("***" + nNode.getNodeName() + "***" + "\n");
                 if(nNode.getNodeType() == Node.ELEMENT_NODE){
                     Element el = (Element) nNode;
-                    System.out.println("car_id: " 
-                            + el.getElementsByTagName("carId").item(0).getTextContent());
-                    System.out.println("company_id: " 
-                            + el.getElementsByTagName("companyId").item(0).getTextContent());
-                    System.out.println("brand: " 
-                            + el.getElementsByTagName("brand").item(0).getTextContent());
-                    System.out.println("name: " 
-                            + el.getElementsByTagName("name").item(0).getTextContent());
-                    System.out.println("color: " 
-                            + el.getElementsByTagName("color").item(0).getTextContent());
-                    System.out.println("photo: " 
-                            + el.getElementsByTagName("photo").item(0).getTextContent());
-                    System.out.println("price: " 
-                            + el.getElementsByTagName("price").item(0).getTextContent()
-                            + " $/hour");
-                }
+                    NodeList companyList = el.getElementsByTagName("car");
+                    for(int j = 0; j < companyList.getLength(); j++){
+                        Node node1 = companyList.item(j);
+                        if(node1.getNodeType() == node1.ELEMENT_NODE){
+                            Element el1 = (Element) node1;
+                            System.out.println("car_id: " 
+                                    + el1.getElementsByTagName("carId").item(0).getTextContent());
+                            System.out.println("company_id: " 
+                                    + el1.getElementsByTagName("companyId").item(0).getTextContent());
+                            System.out.println("brand: " 
+                                    + el1.getElementsByTagName("brand").item(0).getTextContent());
+                            System.out.println("name: " 
+                                    + el1.getElementsByTagName("name").item(0).getTextContent());
+                            System.out.println("color: " 
+                                    + el1.getElementsByTagName("color").item(0).getTextContent());
+                            System.out.println("photo: " 
+                                    + el1.getElementsByTagName("photo").item(0).getTextContent());
+                            System.out.println("price: " 
+                                    + el1.getElementsByTagName("price").item(0).getTextContent()
+                                    + " $/hour" + "\n");
+                        }
+                    }
+                }                    
             }
         } catch (Exception e){
             e.printStackTrace();
