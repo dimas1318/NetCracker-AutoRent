@@ -1,4 +1,4 @@
-package com.netcracker.edu.parshin.archiver;
+package com.netcracker.edu.parshin.autorent;
 
 import java.util.Date;
 
