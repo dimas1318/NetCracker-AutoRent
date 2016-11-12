@@ -1,213 +1,214 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<locations>
-<location>
-	<locationId>1</locationId>
-	<companyId>2</companyId>
-	<address>Moscow, 96 Garrett Street</address>
-</location>
-<location>
-	<locationId>2</locationId>
-	<companyId>2</companyId>
-	<address>Moscow, 64 Lords Way</address>
-</location>
-<location>
-	<locationId>3</locationId>
-	<companyId>1</companyId>
-	<address>Moscow, 49 Carriage Lane</address>
-</location>
-<location>
-	<locationId>4</locationId>
-	<companyId>1</companyId>
-	<address>Saint-Petersburg, 34 Jerry Dove Drive</address>
-</location>
-<location>
-	<locationId>5</locationId>
-	<companyId>3</companyId>
-	<address>Moscow, 33 Cottrill Lane</address>
-</location>
-</locations>
+<class>
+	<locations>
+	<location>
+		<locationId>1</locationId>
+		<companyId>2</companyId>
+		<address>Moscow, 96 Garrett Street</address>
+	</location>
+	<location>
+		<locationId>2</locationId>
+		<companyId>2</companyId>
+		<address>Moscow, 64 Lords Way</address>
+	</location>
+	<location>
+		<locationId>3</locationId>
+		<companyId>1</companyId>
+		<address>Moscow, 49 Carriage Lane</address>
+	</location>
+	<location>
+		<locationId>4</locationId>
+		<companyId>1</companyId>
+		<address>Saint-Petersburg, 34 Jerry Dove Drive</address>
+	</location>
+	<location>
+		<locationId>5</locationId>
+		<companyId>3</companyId>
+		<address>Moscow, 33 Cottrill Lane</address>
+	</location>
+	</locations>
 
-<companies>
-<company>
-	<companyId>1</companyId>
-	<name>Intuito</name>
-	<site>intuito.com</site>
-	<phoneNumber>+1-202-555-0185</phoneNumber>
-</company>
-<company>
-	<companyId>2</companyId>
-	<name>Athere</name>
-	<site>athere.com</site>
-	<phoneNumber>+1-207-555-0137</phoneNumber>
-</company>
-<company>
-	<companyId>3</companyId>
-	<name>Allower</name>
-	<site>allower.com</site>
-	<phoneNumber>+1-225-555-0112</phoneNumber>
-</company>
-</companies>
+	<companies>
+	<company>
+		<companyId>1</companyId>
+		<name>Intuito</name>
+		<site>intuito.com</site>
+		<phoneNumber>+1-202-555-0185</phoneNumber>
+	</company>
+	<company>
+		<companyId>2</companyId>
+		<name>Athere</name>
+		<site>athere.com</site>
+		<phoneNumber>+1-207-555-0137</phoneNumber>
+	</company>
+	<company>
+		<companyId>3</companyId>
+		<name>Allower</name>
+		<site>allower.com</site>
+		<phoneNumber>+1-225-555-0112</phoneNumber>
+	</company>
+	</companies>
 
-<drivers>
-<driver>
-	<driverId>1</driverId>
-	<companyId>3</companyId>
-	<firstName>Danny</firstName>
-	<lastName>Karlson</lastName>
-	<drivingExperience>1</drivingExperience>
-</driver>
-<driver>
-	<driverId>2</driverId>
-	<companyId>1</companyId>
-	<firstName>Kate</firstName>
-	<lastName>Dills </lastName>
-	<drivingExperience>15</drivingExperience>
-</driver>
-<driver>
-	<driverId>3</driverId>
-	<companyId>2</companyId>
-	<firstName>Cris</firstName>
-	<lastName>Petit</lastName>
-	<drivingExperience>8</drivingExperience>
-</driver>
-<driver>
-	<driverId>4</driverId>
-	<companyId>1</companyId>
-	<firstName>Tom</firstName>
-	<lastName>Piggott</lastName>
-	<drivingExperience>37</drivingExperience>
-</driver>
-</drivers>
+	<drivers>
+	<driver>
+		<driverId>1</driverId>
+		<companyId>3</companyId>
+		<firstName>Danny</firstName>
+		<lastName>Karlson</lastName>
+		<drivingExperience>1</drivingExperience>
+	</driver>
+	<driver>
+		<driverId>2</driverId>
+		<companyId>1</companyId>
+		<firstName>Kate</firstName>
+		<lastName>Dills </lastName>
+		<drivingExperience>15</drivingExperience>
+	</driver>
+	<driver>
+		<driverId>3</driverId>
+		<companyId>2</companyId>
+		<firstName>Cris</firstName>
+		<lastName>Petit</lastName>
+		<drivingExperience>8</drivingExperience>
+	</driver>
+	<driver>
+		<driverId>4</driverId>
+		<companyId>1</companyId>
+		<firstName>Tom</firstName>
+		<lastName>Piggott</lastName>
+		<drivingExperience>37</drivingExperience>
+	</driver>
+	</drivers>
 
-<cars>
-<car>
-	<carId>1</carId>
-	<companyId>1</companyId>
-	<brand>Audi</brand>
-	<name>A6</name>
-	<color>blue</color>
-	<photo>photo1</photo>
-	<price>140</price>
-</car>
-<car>
-	<carId>2</carId>
-	<companyId>1</companyId>
-	<brand>Mercedes</brand>
-	<name>GLS350d 4MATIC</name>
-	<color>black</color>
-	<photo>photo2</photo>
-	<price>260</price>
-</car>
-<car>
-	<carId>3</carId>
-	<companyId>2</companyId>
-	<brand>Audi</brand>
-	<name>RS 7</name>
-	<color>white</color>
-	<photo>photo3</photo>
-	<price>100</price>
-</car>
-<car>
-	<carId>4</carId>
-	<companyId>2</companyId>
-	<brand>Hyundai</brand>
-	<name>Accent</name>
-	<color>black</color>
-	<photo>photo4</photo>
-	<price>67</price>
-</car>
-<car>
-	<carId>5</carId>
-	<companyId>2</companyId>
-	<brand>Toyota</brand>
-	<name>Corolla</name>
-	<color>grey</color>
-	<photo>photo5</photo>
-	<price>95</price>
-</car>
-<car>
-	<carId>6</carId>
-	<companyId>1</companyId>
-	<brand>Mitsubishi</brand>
-	<name>Lancer</name>
-	<color>red</color>
-	<photo>photo6</photo>
-	<price>204</price>
-</car>
-<car>
-	<carId>7</carId>
-	<companyId>3</companyId>
-	<brand>Mitsubishi</brand>
-	<name>Lancer</name>
-	<color>grey</color>
-	<photo>photo7</photo>
-	<price>198</price>
-</car>
-</cars>
+	<cars>
+	<car>
+		<carId>1</carId>
+		<companyId>1</companyId>
+		<brand>Audi</brand>
+		<name>A6</name>
+		<color>blue</color>
+		<photo>photo1</photo>
+		<price>140</price>
+	</car>
+	<car>
+		<carId>2</carId>
+		<companyId>1</companyId>
+		<brand>Mercedes</brand>
+		<name>GLS350d 4MATIC</name>
+		<color>black</color>
+		<photo>photo2</photo>
+		<price>260</price>
+	</car>
+	<car>
+		<carId>3</carId>
+		<companyId>2</companyId>
+		<brand>Audi</brand>
+		<name>RS 7</name>
+		<color>white</color>
+		<photo>photo3</photo>
+		<price>100</price>
+	</car>
+	<car>
+		<carId>4</carId>
+		<companyId>2</companyId>
+		<brand>Hyundai</brand>
+		<name>Accent</name>
+		<color>black</color>
+		<photo>photo4</photo>
+		<price>67</price>
+	</car>
+	<car>
+		<carId>5</carId>
+		<companyId>2</companyId>
+		<brand>Toyota</brand>
+		<name>Corolla</name>
+		<color>grey</color>
+		<photo>photo5</photo>
+		<price>95</price>
+	</car>
+	<car>
+		<carId>6</carId>
+		<companyId>1</companyId>
+		<brand>Mitsubishi</brand>
+		<name>Lancer</name>
+		<color>red</color>
+		<photo>photo6</photo>
+		<price>204</price>
+	</car>
+	<car>
+		<carId>7</carId>
+		<companyId>3</companyId>
+		<brand>Mitsubishi</brand>
+		<name>Lancer</name>
+		<color>grey</color>
+		<photo>photo7</photo>
+		<price>198</price>
+	</car>
+	</cars>
 
-<sessions>
-<session>
-	<sessionId>1</sessionId>
-	<carId>3</carId>
-	<startDate>Mar 12 17:00:00 2016</startDate>
-	<endDate>Mar 14 09:00:00 2016</endDate>
-	<driverId>1</driverId>
-	<customerId>1</customerId>
-</session>
-<session>
-	<sessionId>2</sessionId>
-	<carId>6</carId>
-	<startDate>Apr 6 12:00:00 2016</startDate>
-	<endDate>Apr 6 17:00:00 2016</endDate>
-	<driverId>NULL</driverId>
-	<customerId>2</customerId>
-</session>
-<session>
-	<sessionId>3</sessionId>
-	<carId>2</carId>
-	<startDate>May 19 08:30:00 2016</startDate>
-	<endDate>May 22 22:00:00 2016</endDate>
-	<driverId>4</driverId>
-	<customerId>1</customerId>
-</session>
-<session>
-	<sessionId>4</sessionId>
-	<carId>7</carId>
-	<startDate>Jul 1 2016 19:00:00</startDate>
-	<endDate>Jul 1 2016 23:30:00</endDate>
-	<driverId>2</driverId>
-	<customerId>2</customerId>
-</session>
-<session>
-	<sessionId>5</sessionId>
-	<carId>2</carId>
-	<startDate>Sep 13 11:30:00 2016</startDate>
-	<endDate>Sep 23 06:00:00 2016</endDate>
-	<driverId>1</driverId>
-	<customerId>2</customerId>
-</session>
-</sessions>
+	<sessions>
+	<session>
+		<sessionId>1</sessionId>
+		<carId>3</carId>
+		<startDate>Mar 12 17:00:00 2016</startDate>
+		<endDate>Mar 14 09:00:00 2016</endDate>
+		<driverId>1</driverId>
+		<customerId>1</customerId>
+	</session>
+	<session>
+		<sessionId>2</sessionId>
+		<carId>6</carId>
+		<startDate>Apr 6 12:00:00 2016</startDate>
+		<endDate>Apr 6 17:00:00 2016</endDate>
+		<driverId>NULL</driverId>
+		<customerId>2</customerId>
+	</session>
+	<session>
+		<sessionId>3</sessionId>
+		<carId>2</carId>
+		<startDate>May 19 08:30:00 2016</startDate>
+		<endDate>May 22 22:00:00 2016</endDate>
+		<driverId>4</driverId>
+		<customerId>1</customerId>
+	</session>
+	<session>
+		<sessionId>4</sessionId>
+		<carId>7</carId>
+		<startDate>Jul 1 2016 19:00:00</startDate>
+		<endDate>Jul 1 2016 23:30:00</endDate>
+		<driverId>2</driverId>
+		<customerId>2</customerId>
+	</session>
+	<session>
+		<sessionId>5</sessionId>
+		<carId>2</carId>
+		<startDate>Sep 13 11:30:00 2016</startDate>
+		<endDate>Sep 23 06:00:00 2016</endDate>
+		<driverId>1</driverId>
+		<customerId>2</customerId>
+	</session>
+	</sessions>
 
-<customers>
-<customer>
-	<customerId>1</customerId>
-	<login>AntonioSir12</login>
-	<password>12345</password>
-	<firstName>Eduardo</firstName>
-	<lastName>Fransen</lastName>
-	<birthDate>12 Jun 1986</birthDate>
-	<phoneNumber>+1-803-555-0157</phoneNumber>
-	<registrationDate>Mar 11 20:16:47 2016</registrationDate>
-</customer>
-<customer>
-	<customerId>2</customerId>
-	<login>JerryBlue</login>
-	<password>angel3</password>
-	<firstName>Tarsha</firstName>
-	<lastName>Renolds</lastName>
-	<birthDate>08 Mar 1990</birthDate>
-	<phoneNumber>+1-803-555-0139</phoneNumber>
-	<registrationDate>Feb 19 10:28:04 2015</registrationDate>
-</customer>
-</customers>
-
+	<customers>
+	<customer>
+		<customerId>1</customerId>
+		<login>AntonioSir12</login>
+		<password>12345</password>
+		<firstName>Eduardo</firstName>
+		<lastName>Fransen</lastName>
+		<birthDate>12 Jun 1986</birthDate>
+		<phoneNumber>+1-803-555-0157</phoneNumber>
+		<registrationDate>Mar 11 20:16:47 2016</registrationDate>
+	</customer>
+	<customer>
+		<customerId>2</customerId>
+		<login>JerryBlue</login>
+		<password>angel3</password>
+		<firstName>Tarsha</firstName>
+		<lastName>Renolds</lastName>
+		<birthDate>08 Mar 1990</birthDate>
+		<phoneNumber>+1-803-555-0139</phoneNumber>
+		<registrationDate>Feb 19 10:28:04 2015</registrationDate>
+	</customer>
+	</customers>
+</class>
