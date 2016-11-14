@@ -13,8 +13,21 @@ public class Main {
         /*Company company = new Company();
         company.listCompany();*/
         
-        /*Car car = new Car();
-        car.listCar();*/
+        Car car = new Car();
+        
+        car.setCarId(999);
+        car.setCompanyId(2);
+        car.setBrand("priora");
+        car.setName("2005");
+        car.setColor("pink");
+        car.setPrice(999);
+        car.addCar();
+        
+        car.listCar();
+        
+        car.modifyCar();
+        
+        car.listCar();
         
         /*Customer customer = new Customer();
         customer.listCustomer();*/
@@ -25,8 +38,8 @@ public class Main {
         /*Location location = new Location();
         location.listLocation();*/
         
-        Session session = new Session();
-        session.listSession();
+        /*Session session = new Session();
+        session.listSession();*/
     }
     
 }
