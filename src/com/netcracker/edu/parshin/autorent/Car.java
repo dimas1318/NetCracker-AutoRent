@@ -2,6 +2,7 @@ package com.netcracker.edu.parshin.autorent;
 
 import java.awt.Image;
 import java.io.File;
+import java.util.Scanner;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.transform.Transformer;
@@ -12,7 +13,6 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
-import org.xml.sax.SAXException;
 
 /**
  *
@@ -26,7 +26,7 @@ public class Car {
     private String color;
     private Image photo;
     private double price;
-
+    
     public int getCarId() {
         return carId;
     }
@@ -209,8 +209,65 @@ public class Car {
     }
     
     public void modifyCar(){
-        removeCar();
+        try {
+            File xmlFile = new File("DataBase.xml");
+            DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+            DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+            Document doc = dBuilder.parse(xmlFile);
+            doc.getDocumentElement().normalize();
+            NodeList nList = doc.getElementsByTagName("cars");
+            for(int i = 0; i < nList.getLength(); i++){
+                Node nNode = nList.item(i);
+                System.out.println("***" + nNode.getNodeName() + "***" + "\n");
+                if(nNode.getNodeType() == Node.ELEMENT_NODE){
+                    Element el = (Element) nNode;
+                    NodeList companyList = el.getElementsByTagName("car");
+                    for(int j = 0; j < companyList.getLength(); j++){
+                        Node node1 = companyList.item(j);
+                        if(node1.getNodeType() == node1.ELEMENT_NODE){
+                            Element el1 = (Element) node1;
+                            if(el1.getElementsByTagName("carId").item(0).getTextContent().equals(Integer.toString(this.carId))){
+                                this.carId = Integer.parseInt(el1.getElementsByTagName("carId").item(0).getTextContent());
+                                this.companyId = Integer.parseInt(el1.getElementsByTagName("companyId").item(0).getTextContent());
+                                this.brand = el1.getElementsByTagName("brand").item(0).getTextContent();
+                                this.name = el1.getElementsByTagName("carId").item(0).getTextContent();
+                                this.color = el1.getElementsByTagName("carId").item(0).getTextContent();
+                                this.price = Double.parseDouble(el1.getElementsByTagName("carId").item(0).getTextContent());
+                            }
+                        }
+                    }
+                }
+            }
+            
+            this.removeCar();
+            
+            Scanner in = new Scanner(System.in);
+            
+            System.out.println("car_id:");
+            String str = in.nextLine();
+            this.setCarId(str.equals("") ? carId : Integer.parseInt(str));
+            System.out.println("company_id:");
+            str = in.nextLine();
+            this.setCompanyId(str.equals("") ? companyId : Integer.parseInt(str));
+            System.out.println("brand:");
+            str = in.nextLine();
+            this.setBrand(str.equals("") ? brand : str);
+            System.out.println("name:");
+            str = in.nextLine();
+            this.setName(str.equals("") ? name : str);
+            System.out.println("color:");
+            str = in.nextLine();
+            this.setColor(str.equals("") ? color : str);
+            System.out.println("price:");
+            str = in.nextLine();
+            this.setPrice(str.equals("") ? price : Double.parseDouble(str));
+            
+            this.addCar();
+        } catch (Exception e){
+            e.printStackTrace();
+        } 
+        /*removeCar();
         this.setCarId(1000);
-        addCar();
+        addCar();*/
     }
 }

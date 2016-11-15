@@ -186,7 +186,7 @@
 		<driverId>1</driverId>
 		<customerId>2</customerId>
 	</session>
-	</sessions>
+	<session><sessionId>333</sessionId><carId>333</carId><startDate>15.11.2016</startDate><endDate>15.11.2016</endDate><driverId>333</driverId><customerId>333</customerId></session></sessions>
 
 	<customers>
 	<customer>
