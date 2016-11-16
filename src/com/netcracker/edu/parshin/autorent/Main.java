@@ -183,25 +183,12 @@ public class Main {
                                     car.setCarId(Integer.parseInt(args[2]));
                                     car.modifyCar();
                                     break;
-                                case "company":
-                                    company.setCompanyId(Integer.parseInt(args[2]));
-                                    company.removeCompany();
-                                    break;
+                                case "company":                                    
                                 case "customer":
-                                    customer.setCustomerId(Integer.parseInt(args[2]));
-                                    customer.removeCustomer();
-                                    break;
                                 case "driver":
-                                    driver.setDriverId(Integer.parseInt(args[2]));
-                                    driver.removeDriver();
-                                    break;
                                 case "location":
-                                    location.setLocationId(Integer.parseInt(args[2]));
-                                    location.removeLocation();
-                                    break;
                                 case "session":
-                                    session.setSessionId(Integer.parseInt(args[2]));
-                                    session.removeSession();
+                                    System.out.println("Sorry, currently it isn't supported.");
                                     break;
                             }
 	        	} else {

@@ -3,6 +3,7 @@ package com.netcracker.edu.parshin.autorent;
 import java.io.File;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.transform.OutputKeys;
 import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
@@ -130,10 +131,11 @@ public class Driver {
                 field5.appendChild(doc.createTextNode(String.valueOf(this.drivingExperience)));
                 newEl.appendChild(field5);
             }
-            TransformerFactory transformerFactory =
-            TransformerFactory.newInstance();
-            Transformer transformer =
-            transformerFactory.newTransformer();
+            TransformerFactory transformerFactory = TransformerFactory.newInstance();
+            transformerFactory.setAttribute("indent-number", 2);
+            Transformer transformer = transformerFactory.newTransformer();
+            transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+            transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "4");
             DOMSource source = new DOMSource(doc);
             StreamResult result = new StreamResult(xmlFile);
             transformer.transform(source, result);

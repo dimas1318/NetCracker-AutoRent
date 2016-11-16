@@ -4,6 +4,7 @@ import java.io.File;
 import java.util.Date;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.transform.OutputKeys;
 import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
@@ -144,10 +145,11 @@ public class Session {
                 field6.appendChild(doc.createTextNode(Integer.toString(this.customerId)));
                 newEl.appendChild(field6);
             }
-            TransformerFactory transformerFactory =
-            TransformerFactory.newInstance();
-            Transformer transformer =
-            transformerFactory.newTransformer();
+            TransformerFactory transformerFactory = TransformerFactory.newInstance();
+            transformerFactory.setAttribute("indent-number", 2);
+            Transformer transformer = transformerFactory.newTransformer();
+            transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+            transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "4");
             DOMSource source = new DOMSource(doc);
             StreamResult result = new StreamResult(xmlFile);
             transformer.transform(source, result);

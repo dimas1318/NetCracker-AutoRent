@@ -1,10 +1,12 @@
 package com.netcracker.edu.parshin.autorent;
 
+import com.sun.org.apache.xml.internal.serializer.OutputPropertiesFactory;
 import java.awt.Image;
 import java.io.File;
 import java.util.Scanner;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.transform.OutputKeys;
 import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
@@ -160,10 +162,11 @@ public class Car {
                 field7.appendChild(doc.createTextNode(Double.toString(this.price)));
                 newEl.appendChild(field7);
             }
-            TransformerFactory transformerFactory =
-            TransformerFactory.newInstance();
-            Transformer transformer =
-            transformerFactory.newTransformer();
+            TransformerFactory transformerFactory = TransformerFactory.newInstance();
+            transformerFactory.setAttribute("indent-number", 2);
+            Transformer transformer = transformerFactory.newTransformer();
+            transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+            transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "4");
             DOMSource source = new DOMSource(doc);
             StreamResult result = new StreamResult(xmlFile);
             transformer.transform(source, result);
@@ -218,7 +221,6 @@ public class Car {
             NodeList nList = doc.getElementsByTagName("cars");
             for(int i = 0; i < nList.getLength(); i++){
                 Node nNode = nList.item(i);
-                System.out.println("***" + nNode.getNodeName() + "***" + "\n");
                 if(nNode.getNodeType() == Node.ELEMENT_NODE){
                     Element el = (Element) nNode;
                     NodeList companyList = el.getElementsByTagName("car");
