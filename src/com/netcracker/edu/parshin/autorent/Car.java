@@ -26,7 +26,7 @@ public class Car {
     private String brand;
     private String name;
     private String color;
-    private Image photo;
+    private String photo;
     private double price;
     
     public int getCarId() {
@@ -69,11 +69,11 @@ public class Car {
         this.color = color;
     }
 
-    public Image getPhoto() {
+    public String getPhoto() {
         return photo;
     }
 
-    public void setPhoto(Image photo) {
+    public void setPhoto(String photo) {
         this.photo = photo;
     }
 

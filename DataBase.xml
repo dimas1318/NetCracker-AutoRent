@@ -150,50 +150,42 @@
 	<session>
 			<sessionId>1</sessionId>
 			<carId>3</carId>
-			<startDate>Mar 12 17:00:00 2016</startDate>
-			<endDate>Mar 14 09:00:00 2016</endDate>
+			<startDate>03 12 17:00:00 2016</startDate>
+			<endDate>03 14 09:00:00 2016</endDate>
 			<driverId>1</driverId>
 			<customerId>1</customerId>
 		</session>
 	<session>
 			<sessionId>2</sessionId>
 			<carId>6</carId>
-			<startDate>Apr 6 12:00:00 2016</startDate>
-			<endDate>Apr 6 17:00:00 2016</endDate>
+			<startDate>04 06 12:00:00 2016</startDate>
+			<endDate>04 06 17:00:00 2016</endDate>
 			<driverId>NULL</driverId>
 			<customerId>2</customerId>
 		</session>
 	<session>
 			<sessionId>3</sessionId>
 			<carId>2</carId>
-			<startDate>May 19 08:30:00 2016</startDate>
-			<endDate>May 22 22:00:00 2016</endDate>
+			<startDate>05 19 08:30:00 2016</startDate>
+			<endDate>05 22 22:00:00 2016</endDate>
 			<driverId>4</driverId>
 			<customerId>1</customerId>
 		</session>
 	<session>
 			<sessionId>4</sessionId>
 			<carId>7</carId>
-			<startDate>Jul 1 2016 19:00:00</startDate>
-			<endDate>Jul 1 2016 23:30:00</endDate>
+			<startDate>07 01 19:00:00 2016</startDate>
+			<endDate>07 01 2016 23:30:00</endDate>
 			<driverId>2</driverId>
 			<customerId>2</customerId>
 		</session>
 	<session>
 			<sessionId>5</sessionId>
 			<carId>2</carId>
-			<startDate>Sep 13 11:30:00 2016</startDate>
-			<endDate>Sep 23 06:00:00 2016</endDate>
+			<startDate>09 13 11:30:00 2016</startDate>
+			<endDate>09 23 06:00:00 2016</endDate>
 			<driverId>1</driverId>
 			<customerId>2</customerId>
-		</session>
-	<session>
-			<sessionId>333</sessionId>
-			<carId>333</carId>
-			<startDate>15.11.2016</startDate>
-			<endDate>15.11.2016</endDate>
-			<driverId>333</driverId>
-			<customerId>333</customerId>
 		</session>
 	</sessions>
 
@@ -204,9 +196,9 @@
 			<password>12345</password>
 			<firstName>Eduardo</firstName>
 			<lastName>Fransen</lastName>
-			<birthDate>12 Jun 1986</birthDate>
+			<birthDate>12 06 1986</birthDate>
 			<phoneNumber>+1-803-555-0157</phoneNumber>
-			<registrationDate>Mar 11 20:16:47 2016</registrationDate>
+			<registrationDate>03 11 20:16:47 2016</registrationDate>
 		</customer>
 	<customer>
 			<customerId>2</customerId>
@@ -214,9 +206,9 @@
 			<password>angel3</password>
 			<firstName>Tarsha</firstName>
 			<lastName>Renolds</lastName>
-			<birthDate>08 Mar 1990</birthDate>
+			<birthDate>08 03 1990</birthDate>
 			<phoneNumber>+1-803-555-0139</phoneNumber>
-			<registrationDate>Feb 19 10:28:04 2015</registrationDate>
+			<registrationDate>02 19 10:28:04 2015</registrationDate>
 		</customer>
 	</customers>
 </class>
