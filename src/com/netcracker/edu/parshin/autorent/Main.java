@@ -30,11 +30,14 @@ public class Main {
         Location location = new Location();
         Session session = new Session();
         
-        List<Object> a = XMLManager.read("DataBase.xml", "cars", "car");
+        List<Object> a = XMLManager.read("DataBase.xml", "customers", "customer");
         for (Iterator<Object> it = a.iterator(); it.hasNext();) {
-            Car obj = (Car) it.next();
-            System.out.println(obj.getPhoto());
-        } //XMLManager.write("DataBase2.xml", a, "cars", "car");
+            Customer obj = (Customer) it.next();
+            System.out.println(obj.getFirstName() + " " + obj.getLastName() + " " + obj.getBirthDate());
+        } 
+        XMLManager.write("DataBase2.xml", a, "customer");
+        
+        
         /*Scanner in = new Scanner(System.in);
         String command = args[0].toLowerCase();
         switch (command){

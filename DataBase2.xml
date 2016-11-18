@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<customers>
+    <customer>
+        <customerId>1</customerId>
+        <login>AntonioSir12</login>
+        <password>12345</password>
+        <firstName>Eduardo</firstName>
+        <lastName>Fransen</lastName>
+        <birthDate>12 06 1986</birthDate>
+        <phoneNumber>+1-803-555-0157</phoneNumber>
+        <registrationDate>03 11 08:16:47 2016</registrationDate>
+    </customer>
+    <customer>
+        <customerId>2</customerId>
+        <login>JerryBlue</login>
+        <password>angel3</password>
+        <firstName>Tarsha</firstName>
+        <lastName>Renolds</lastName>
+        <birthDate>08 03 1990</birthDate>
+        <phoneNumber>+1-803-555-0139</phoneNumber>
+        <registrationDate>02 19 10:28:04 2015</registrationDate>
+    </customer>
+</customers>
