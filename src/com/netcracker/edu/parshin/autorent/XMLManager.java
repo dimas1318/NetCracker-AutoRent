@@ -11,8 +11,10 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
+import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.xml.parsers.DocumentBuilder;
@@ -333,6 +335,526 @@ public class XMLManager {
             transformer.transform(source, result);
         } catch (TransformerException | ParserConfigurationException ex) {
             Logger.getLogger(XMLManager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public static void list(List<Object> objects, String className){
+        switch(className.toLowerCase()){
+            case "car":
+                for (Object obj : objects) {
+                    if(obj instanceof Car){
+                        System.out.println("car_id: " + ((Car) obj).getCarId());
+                        System.out.println("company_id: " + ((Car) obj).getCompanyId());
+                        System.out.println("brand: " + ((Car) obj).getBrand());
+                        System.out.println("name: " + ((Car) obj).getName());
+                        System.out.println("color: " + ((Car) obj).getColor());
+                        System.out.println("photo: " + ((Car) obj).getPhoto());
+                        System.out.println("price: " + ((Car) obj).getPrice() 
+                                + " $/hour" + "\n");
+                    }
+                } 
+                break;
+                
+            case "company":
+                for (Object obj : objects){
+                    if(obj instanceof Company){
+                        System.out.println("company_id: " + ((Company) obj).getCompanyId());
+                        System.out.println("name: " + ((Company) obj).getName());
+                        System.out.println("site: " + ((Company) obj).getSite());
+                        System.out.println("phone_number: " + ((Company) obj).getPhoneNumber() + "\n");
+                    }
+                }
+                break;
+                
+            case "customer":
+                for (Object obj : objects){
+                    if(obj instanceof Customer){
+                        System.out.println("customer_id: " + ((Customer) obj).getCustomerId());
+                        System.out.println("login: " + ((Customer) obj).getLogin());
+                        System.out.println("password: " + ((Customer) obj).getPassword());
+                        System.out.println("first_name: " + ((Customer) obj).getFirstName());
+                        System.out.println("last_name: " + ((Customer) obj).getLastName());
+                        System.out.println("birth_date: " + ((Customer) obj).getBirthDate());
+                        System.out.println("phone_number: " + ((Customer) obj).getPhoneNumber());
+                        System.out.println("registration_date: " + ((Customer) obj).getRegistrationDate()
+                                + "\n");
+                    }
+                }
+                break;
+                
+            case "driver":
+                for (Object obj : objects) {
+                    if(obj instanceof Driver){
+                        System.out.println("driver_id: " + ((Driver) obj).getDriverId());
+                        System.out.println("company_id: " + ((Driver) obj).getCompanyId());
+                        System.out.println("first_name: " + ((Driver) obj).getFirstName());
+                        System.out.println("last_name: " + ((Driver) obj).getLastName());
+                        System.out.println("driving_experience: " + ((Driver) obj).getDrivingExperience()
+                                + "\n");
+                    }
+                }
+                break;
+                
+            case "location":
+                for (Object obj : objects){
+                    if(obj instanceof Location){
+                        System.out.println("location_id: " + ((Location) obj).getLocationId());
+                        System.out.println("company_id: " + ((Location) obj).getCompanyId());
+                        System.out.println("address: " + ((Location) obj).getAddress() + "\n");
+                    }
+                }
+                break;
+                
+            case "session":
+                for (Object obj : objects){
+                    if(obj instanceof Session){
+                        System.out.println("session_id: " + ((Session) obj).getSessionId());
+                        System.out.println("car_id: " + ((Session) obj).getCarId());
+                        System.out.println("start_date: " + ((Session) obj).getStartDate());
+                        System.out.println("end_date: " + ((Session) obj).getEndDate());
+                        System.out.println("driver_id: " + ((Session) obj).getDriverId());
+                        System.out.println("customer_id: " + ((Session) obj).getCustomerId() + "\n");
+                    }
+                }
+                break;
+                
+            default:
+                System.out.println("Wrong input, correct format: \n" + 
+                        "| (List <Class Name>, where ClassName =)\n" +
+                        "| (Car, Company, Customer, Driver, Location or Session)");
+                break;         
+        }        
+    }
+    
+    public static void add(List<Object> objects, String className) throws ParseException{
+        Scanner in = new Scanner(System.in);
+        String str;
+        DateFormat df;
+        switch(className.toLowerCase()){            
+            case "car":
+                Car car = new Car();
+                System.out.println("car_id:");
+                str = in.nextLine();
+                while(str.equals("")) str = in.nextLine();
+                car.setCarId(Integer.parseInt(str));
+                System.out.println("company_id:");
+                str = in.nextLine();
+                while(str.equals("")) str = in.nextLine();
+                car.setCompanyId(Integer.parseInt(str));
+                System.out.println("brand:");
+                str = in.nextLine();
+                while(str.equals("")) str = in.nextLine();
+                car.setBrand(str);
+                System.out.println("name:");
+                str = in.nextLine();
+                while(str.equals("")) str = in.nextLine();
+                car.setName(str);
+                System.out.println("color:");
+                str = in.nextLine();
+                while(str.equals("")) str = in.nextLine();
+                car.setColor(str);
+                System.out.println("price:");
+                str = in.nextLine();
+                while(str.equals("")) str = in.nextLine();
+                car.setPrice(Double.parseDouble(str));
+                car.setPhoto("photo" + car.getCarId());
+                
+                objects.add(car);
+                break;
+                
+            case "company":
+                Company company = new Company();   
+                System.out.println("company_id:");
+                str = in.nextLine();
+                while(str.equals("")) str = in.nextLine();
+                company.setCompanyId(Integer.parseInt(str));
+                System.out.println("name:");
+                str = in.nextLine();
+                while(str.equals("")) str = in.nextLine();
+                company.setName(str);
+                System.out.println("site:");
+                str = in.nextLine();
+                while(str.equals("")) str = in.nextLine();
+                company.setSite(str);
+                System.out.println("phone:");
+                str = in.nextLine();
+                while(str.equals("")) str = in.nextLine();
+                company.setPhoneNumber(str);
+                
+                objects.add(company);
+                break;
+                
+            case "customer":
+                Customer customer = new Customer();
+                
+                System.out.println("customer_id:");
+                str = in.nextLine();
+                while(str.equals("")) str = in.nextLine();
+                customer.setCustomerId(Integer.parseInt(str));                
+                System.out.println("login:");
+                str = in.nextLine();
+                while(str.equals("")) str = in.nextLine();
+                customer.setLogin(str);
+                System.out.println("password:");
+                str = in.nextLine();
+                while(str.equals("")) str = in.nextLine();
+                customer.setPassword(str);
+                System.out.println("first_name:");
+                str = in.nextLine();
+                while(str.equals("")) str = in.nextLine();
+                customer.setFirstName(str);
+                System.out.println("last_name:");
+                str = in.nextLine();
+                while(str.equals("")) str = in.nextLine();
+                customer.setLastName(str);
+                System.out.println("birth_date (dd MM yyyy):");
+                str = in.nextLine();
+                while(str.equals("")) str = in.nextLine();
+                DateFormat df1 = new SimpleDateFormat("dd MM yyyy", Locale.ENGLISH); 
+                customer.setBirthDate(df1.parse(str));
+                System.out.println("phone:");
+                str = in.nextLine();
+                while(str.equals("")) str = in.nextLine();
+                customer.setPhoneNumber(str);
+                System.out.println("registration_date (MM dd hh:mm:ss yyyy):");
+                str = in.nextLine();
+                while(str.equals("")) str = in.nextLine();
+                df = new SimpleDateFormat("MM dd hh:mm:ss yyyy", Locale.ENGLISH);
+                customer.setRegistrationDate(df.parse(str));
+                
+                objects.add(customer);
+                break;
+                
+            case "driver":
+                Driver driver = new Driver();
+                
+                System.out.println("driver_id:");
+                str = in.nextLine();
+                while(str.equals("")) str = in.nextLine();
+                driver.setDriverId(Integer.parseInt(str));
+                System.out.println("company_id:");
+                str = in.nextLine();
+                while(str.equals("")) str = in.nextLine();
+                driver.setCompanyId(Integer.parseInt(str));
+                System.out.println("first_name:");
+                str = in.nextLine();
+                while(str.equals("")) str = in.nextLine();
+                driver.setFirstName(str);
+                System.out.println("last_name:");
+                str = in.nextLine();
+                while(str.equals("")) str = in.nextLine();
+                driver.setLastName(str);
+                System.out.println("driving_experience:");
+                str = in.nextLine();
+                while(str.equals("")) str = in.nextLine();
+                driver.setDrivingExperience(Double.parseDouble(str));
+                
+                objects.add(driver);
+                break;
+                
+            case "location":
+                Location location = new Location();
+                
+                System.out.println("location_id:");
+                str = in.nextLine();
+                while(str.equals("")) str = in.nextLine();
+                location.setLocationId(Integer.parseInt(str));
+                System.out.println("company_id:");
+                str = in.nextLine();
+                while(str.equals("")) str = in.nextLine();
+                location.setCompanyId(Integer.parseInt(str));
+                System.out.println("address:");
+                str = in.nextLine();
+                while(str.equals("")) str = in.nextLine();
+                location.setAddress(str);
+                
+                objects.add(location);
+                break;
+                
+            case "session":
+                Session session = new Session();
+                
+                System.out.println("session_id:");
+                str = in.nextLine();
+                while(str.equals("")) str = in.nextLine();
+                session.setSessionId(Long.parseLong(str));
+                System.out.println("car_id:");
+                str = in.nextLine();
+                while(str.equals("")) str = in.nextLine();
+                session.setCarId(Integer.parseInt(str));
+                System.out.println("start_date:");
+                str = in.nextLine();
+                while(str.equals("")) str = in.nextLine();
+                df = new SimpleDateFormat("MM dd hh:mm:ss yyyy", Locale.ENGLISH);
+                session.setStartDate(df.parse(str));
+                System.out.println("end_date:");
+                str = in.nextLine();
+                while(str.equals("")) str = in.nextLine();
+                session.setEndDate(df.parse(str));
+                System.out.println("driver_id:");
+                str = in.nextLine();
+                while(str.equals("")) str = in.nextLine();
+                session.setDriverId(Integer.parseInt(str));
+                
+                objects.add(session);
+                break;
+                
+            default:
+                System.out.println("Wrong input, correct format: \n" + 
+                        "| (Add <Class Name>, where ClassName =)\n" +
+                        "| (Car, Company, Customer, Driver, Location or Session)");
+                break;
+        }
+    }
+    
+    public static void remove(List<Object> objects, String className, Long id){
+        switch(className.toLowerCase()){
+            case "car":
+                for (Iterator<Object> it = objects.iterator(); it.hasNext();) {
+                    Object obj = it.next();
+                    if(obj instanceof Car){
+                        if(((Car) obj).getCarId() == id){
+                            it.remove();
+                            System.out.println("Object with " + id + " id was removed");
+                        }
+                    }
+                }
+                break;
+                
+            case "company":
+                for (Iterator<Object> it = objects.iterator(); it.hasNext();) {
+                    Object obj = it.next();
+                    if(obj instanceof Company){
+                        if(((Company) obj).getCompanyId() == id){
+                            it.remove();
+                            System.out.println("Object with " + id + " id was removed");
+                        }
+                    }
+                }
+                break;
+                
+            case "customer":
+                for (Iterator<Object> it = objects.iterator(); it.hasNext();) {
+                    Object obj = it.next();
+                    if(obj instanceof Customer){
+                        if(((Customer) obj).getCustomerId() == id){
+                            it.remove();
+                            System.out.println("Object with " + id + " id was removed");
+                        }
+                    }
+                }
+                break;
+                
+            case "driver":
+                for (Iterator<Object> it = objects.iterator(); it.hasNext();) {
+                    Object obj = it.next();
+                    if(obj instanceof Driver){
+                        if(((Driver) obj).getDriverId() == id){
+                            it.remove();
+                            System.out.println("Object with " + id + " id was removed");
+                        }
+                    }
+                }
+                break;
+                
+            case "location":
+                for (Iterator<Object> it = objects.iterator(); it.hasNext();) {
+                    Object obj = it.next();
+                    if(obj instanceof Location){
+                        if(((Location) obj).getLocationId() == id){
+                            it.remove();
+                            System.out.println("Object with " + id + " id was removed");
+                        }
+                    }
+                }
+                break;
+                
+            case "session":
+                for (Iterator<Object> it = objects.iterator(); it.hasNext();) {
+                    Object obj = it.next();
+                    if(obj instanceof Session){
+                        if(((Session) obj).getSessionId() == id){
+                            it.remove();
+                            System.out.println("Object with " + id + " id was removed");
+                        }
+                    }
+                }
+                break;
+
+            default:
+                System.out.println("Wrong input, correct format: \n" + 
+                        "| (Remove <Class Name> <ObjectId>, where ClassName =)\n" +
+                        "| (Car, Company, Customer, Driver, Location or Session)");
+                break;
+        }
+    }
+    
+    public static void modify(List<Object> objects, String className, Long id) throws ParseException{
+        Scanner in = new Scanner(System.in);
+        String str;
+        DateFormat df;
+        switch(className.toLowerCase()){
+            case "car":
+                for (Object obj : objects) {
+                    if(obj instanceof Car){
+                        if(((Car) obj).getCarId() == id){
+                            System.out.println("car_id:");
+                            str = in.nextLine();
+                            ((Car) obj).setCarId(str.equals("") ? ((Car) obj).getCarId() : Integer.parseInt(str));
+                            System.out.println("company_id:");
+                            str = in.nextLine();
+                            ((Car) obj).setCompanyId(str.equals("") ? ((Car) obj).getCompanyId() : Integer.parseInt(str));
+                            System.out.println("brand:");
+                            str = in.nextLine();
+                            ((Car) obj).setBrand(str.equals("") ? ((Car) obj).getBrand() : str);
+                            System.out.println("name:");
+                            str = in.nextLine();
+                            ((Car) obj).setName(str.equals("") ? ((Car) obj).getName() : str);
+                            System.out.println("color:");
+                            str = in.nextLine();
+                            ((Car) obj).setColor(str.equals("") ? ((Car) obj).getColor() : str);
+                            System.out.println("price:");
+                            str = in.nextLine();
+                            ((Car) obj).setPrice(str.equals("") ? ((Car) obj).getPrice() : Double.parseDouble(str));
+                            System.out.println("Object with " + id + " id was changed");
+                        }
+                    }
+                }
+                break;
+                
+            case "company":
+                for (Object obj : objects){
+                    if(obj instanceof Company){
+                        if(((Company) obj).getCompanyId() == id){
+                            System.out.println("company_id:");
+                            str = in.nextLine();
+                            ((Company) obj).setCompanyId(str.equals("") ? ((Company) obj).getCompanyId() : Integer.parseInt(str));
+                            System.out.println("name:");
+                            str = in.nextLine();
+                            ((Company) obj).setName(str.equals("") ? ((Company) obj).getName() : str);
+                            System.out.println("site:");
+                            str = in.nextLine();
+                            ((Company) obj).setSite(str.equals("") ? ((Company) obj).getSite() : str);
+                            System.out.println("phone:");
+                            str = in.nextLine();
+                            ((Company) obj).setPhoneNumber(str.equals("") ? ((Company) obj).getPhoneNumber() : str);
+                            System.out.println("Object with " + id + " id was changed");
+                        }
+                    }
+                }
+                break;
+                
+            case "customer":
+                for (Object obj : objects){
+                    if(obj instanceof Customer){
+                        if(((Customer) obj).getCustomerId() == id){
+                            System.out.println("customer_id:");
+                            str = in.nextLine();
+                            ((Customer) obj).setCustomerId(str.equals("") ? ((Customer) obj).getCustomerId() : Integer.parseInt(str));                
+                            System.out.println("login:");
+                            str = in.nextLine();
+                            ((Customer) obj).setLogin(str.equals("") ? ((Customer) obj).getLogin() : str);
+                            System.out.println("password:");
+                            str = in.nextLine();
+                            ((Customer) obj).setPassword(str.equals("") ? ((Customer) obj).getPassword() : str);
+                            System.out.println("first_name:");
+                            str = in.nextLine();
+                            ((Customer) obj).setFirstName(str.equals("") ? ((Customer) obj).getFirstName() : str);
+                            System.out.println("last_name:");
+                            str = in.nextLine();
+                            ((Customer) obj).setLastName(str.equals("") ? ((Customer) obj).getLastName() : str);
+                            System.out.println("birth_date (dd MM yyyy):");
+                            str = in.nextLine();
+                            DateFormat df1 = new SimpleDateFormat("dd MM yyyy", Locale.ENGLISH); 
+                            ((Customer) obj).setBirthDate(str.equals("") ? ((Customer) obj).getBirthDate() : df1.parse(str));
+                            System.out.println("phone:");
+                            str = in.nextLine();
+                            ((Customer) obj).setPhoneNumber(str.equals("") ? ((Customer) obj).getPhoneNumber() : str);
+                            System.out.println("registration_date (MM dd hh:mm:ss yyyy):");
+                            str = in.nextLine();
+                            df = new SimpleDateFormat("MM dd hh:mm:ss yyyy", Locale.ENGLISH);
+                            ((Customer) obj).setRegistrationDate(str.equals("") ? ((Customer) obj).getRegistrationDate() : df.parse(str));
+                            System.out.println("Object with " + id + " id was changed");
+                        }
+                    }
+                }
+                break;
+                
+            case "driver":
+                for (Object obj : objects){
+                    if(obj instanceof Driver){
+                        if(((Driver) obj).getDriverId() == id){
+                            System.out.println("driver_id:");
+                            str = in.nextLine();
+                            ((Driver) obj).setDriverId(str.equals("") ? ((Driver) obj).getDriverId() : Integer.parseInt(str));
+                            System.out.println("company_id:");
+                            str = in.nextLine();
+                            ((Driver) obj).setCompanyId(str.equals("") ? ((Driver) obj).getCompanyId() : Integer.parseInt(str));
+                            System.out.println("first_name:");
+                            str = in.nextLine();
+                            ((Driver) obj).setFirstName(str.equals("") ? ((Driver) obj).getFirstName() : str);
+                            System.out.println("last_name:");
+                            str = in.nextLine();
+                            ((Driver) obj).setLastName(str.equals("") ? ((Driver) obj).getLastName() : str);
+                            System.out.println("driving_experience:");
+                            str = in.nextLine();
+                            ((Driver) obj).setDrivingExperience(str.equals("") ? ((Driver) obj).getDrivingExperience() : Double.parseDouble(str));
+                            System.out.println("Object with " + id + " id was changed");
+                        }
+                    }
+                }
+                break;
+                
+            case "location":
+                for (Object obj : objects){
+                    if(obj instanceof Location){
+                        if(((Location) obj).getLocationId() == id){
+                            System.out.println("location_id:");
+                            str = in.nextLine();
+                            ((Location) obj).setLocationId(str.equals("") ? ((Location) obj).getLocationId() : Integer.parseInt(str));
+                            System.out.println("company_id:");
+                            str = in.nextLine();
+                            ((Location) obj).setCompanyId(str.equals("") ? ((Location) obj).getCompanyId() : Integer.parseInt(str));
+                            System.out.println("address:");
+                            str = in.nextLine();
+                            ((Location) obj).setAddress(str.equals("") ? ((Location) obj).getAddress() : str);
+                            System.out.println("Object with " + id + " id was changed");
+                        }
+                    }
+                }
+                break;
+                
+            case "session":
+                for (Object obj : objects){
+                    if(obj instanceof Session){
+                        if(((Session) obj).getSessionId() == id){
+                            System.out.println("session_id:");
+                            str = in.nextLine();
+                            ((Session) obj).setSessionId(str.equals("") ? ((Session) obj).getSessionId() : Long.parseLong(str));
+                            System.out.println("car_id:");
+                            str = in.nextLine();
+                            ((Session) obj).setCarId(str.equals("") ? ((Session) obj).getCarId() : Integer.parseInt(str));
+                            System.out.println("start_date:");
+                            str = in.nextLine();
+                            df = new SimpleDateFormat("MM dd hh:mm:ss yyyy", Locale.ENGLISH);
+                            ((Session) obj).setStartDate(str.equals("") ? ((Session) obj).getStartDate() : df.parse(str));
+                            System.out.println("end_date:");
+                            str = in.nextLine();
+                            ((Session) obj).setEndDate(str.equals("") ? ((Session) obj).getEndDate() : df.parse(str));
+                            System.out.println("driver_id:");
+                            str = in.nextLine();
+                            ((Session) obj).setDriverId(str.equals("") ? ((Session) obj).getDriverId() : Integer.parseInt(str));
+                            System.out.println("Object with " + id + " id was changed");
+                        }
+                    }
+                }
+                break;
+                
+            default:
+                System.out.println("Wrong input, correct format: \n" + 
+                        "| (Modify <Class Name> <ObjectId>, where ClassName =)\n" +
+                        "| (Car, Company, Customer, Driver, Location or Session)");
+                break;
         }
     }
 }
